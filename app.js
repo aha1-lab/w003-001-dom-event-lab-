@@ -20,7 +20,7 @@ buttons.forEach((button=>{
 
 function processInput(value){
     // Check the vaule if it number of 
-    if(Number(value) || Number(value) === 0){
+    if(Number(value) || Number(value) === 0 && total === 0){
         // console.log('numbers')
         if(num2 === 0 && operator === null){
             if(num1 === 0) num1 = value
@@ -29,7 +29,7 @@ function processInput(value){
             }
             console.log(num1)
             displayElement.innerHTML = num1
-        }else if (num1 !==0 && operator !== null){
+        }else if (num1 !==0 && operator !== null && total === 0){
             if(num2 === 0) num2 = value
             else{
                 num2 = num2 + value
@@ -54,6 +54,7 @@ function processInput(value){
             operator = value
             num1 = total
             num2 = 0
+            total = 0
             displayElement.innerHTML = num1 + operator
         }
         else if(value === 'C'){
